@@ -2,13 +2,7 @@
 using Blog.Data.Context;
 using Blog.Data.Repositories.Abstractions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Blog.Data.Repositories.Concretes
 {
