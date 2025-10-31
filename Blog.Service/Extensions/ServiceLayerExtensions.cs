@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +20,11 @@ namespace Blog.Service.Extensions
         public static IServiceCollection LoadServiceLayerExtensions(this IServiceCollection services)
         {
             // Buraya Service katmanına ait servisler eklenebilir.
+            
+            var assembly = Assembly.GetExecutingAssembly();  // Assembly = çağrıldığı katmanı klasörü bildirir => Blog.Service i temsil eder
             services.AddScoped<IArticleService, ArticleService>();
+
+            services.AddAutoMapper(assembly);
             return services;
         }
     }
