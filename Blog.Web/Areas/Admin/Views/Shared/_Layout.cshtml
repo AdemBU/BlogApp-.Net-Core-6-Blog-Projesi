@@ -64,7 +64,7 @@
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             <!-- Menu -->
-            
+
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
@@ -529,9 +529,9 @@
                                         <div class="dropdown-divider"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="auth-login-basic.html">
+                                        <a class="dropdown-item" asp-area="Admin" asp-controller="Auth" asp-action="Logout">
                                             <i class="bx bx-power-off me-2"></i>
-                                            <span class="align-middle">Log Out</span>
+                                            <span class="align-middle">Çıkış Yap</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -543,7 +543,6 @@
 
                 <!-- / Navbar -->
                 <!-- Content wrapper -->
-                
                 @RenderBody()
                 <!-- Content wrapper -->
             </div>

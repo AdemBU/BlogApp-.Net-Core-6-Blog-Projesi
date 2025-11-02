@@ -52,9 +52,9 @@ namespace Blog.Data.Mapping
             {
                 Id = Guid.Parse("0DD20017-ED70-471F-9701-926A8F764EF2"),
                 UserName = "superadmin@gmail.com",
-                NormalizedUserName = "SUPERADMİN@GMAİL.COM",
+                NormalizedUserName = "SUPERADMIN@GMAIL.COM",
                 Email = "superadmin@gmail.com",
-                NormalizedEmail = "SUPERADMİN@GMAİL.COM",
+                NormalizedEmail = "SUPERADMIN@GMAIL.COM",
                 PhoneNumber = "+905555555555",
                 FirstName = "Adem",
                 LastName = "Çok",
@@ -69,9 +69,9 @@ namespace Blog.Data.Mapping
             {
                 Id = Guid.Parse("5F04DF46-AA62-4381-B723-B80DED53A3A0"),
                 UserName = "admin@gmail.com",
-                NormalizedUserName = "ADMİN@GMAİL.COM",
+                NormalizedUserName = "ADMIN@GMAIL.COM",
                 Email = "admin@gmail.com",
-                NormalizedEmail = "ADMİN@GMAİL.COM",
+                NormalizedEmail = "ADMIN@GMAIL.COM",
                 PhoneNumber = "+905555555556",
                 FirstName = "Admin",
                 LastName = "User",
