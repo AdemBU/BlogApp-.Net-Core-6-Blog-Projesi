@@ -22,9 +22,9 @@ namespace Blog.Service.Services.Concrete
             this.mapper = mapper;
         }
 
-        public async Task<List<ArticleDto>> GetAllArticleAsync()
+        public async Task<List<ArticleDto>> GetAllArticleWithCategoryNonDeletedAsync()
         {
-            var articles = await _unitOfWork.GetRepository<Article>().GetAllAsync();
+            var articles = await _unitOfWork.GetRepository<Article>().GetAllAsync(x => !x.IsDeleted, x => x.Category);
             var map = mapper.Map<List<ArticleDto>>(articles);
             return map;
         }
