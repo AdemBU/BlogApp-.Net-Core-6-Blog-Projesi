@@ -7,7 +7,7 @@ namespace Blog.Entity.Entities
         //makale entity propertyleri
         public string Title { get; set; }
         public string Content { get; set; }  // içerik
-        public int ViewCount { get; set; }  //görüntüleme
+        public int ViewCount { get; set; } = 0;  //görüntüleme
 
         public Guid CategoryId { get; set; }
         public Category Category { get; set; }

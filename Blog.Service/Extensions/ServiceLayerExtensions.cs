@@ -20,9 +20,10 @@ namespace Blog.Service.Extensions
         public static IServiceCollection LoadServiceLayerExtensions(this IServiceCollection services)
         {
             // Buraya Service katmanına ait servisler eklenebilir.
-            
+
             var assembly = Assembly.GetExecutingAssembly();  // Assembly = çağrıldığı katmanı klasörü bildirir => Blog.Service i temsil eder
             services.AddScoped<IArticleService, ArticleService>();
+            services.AddScoped<ICategoryService, CategoryService>();
 
             services.AddAutoMapper(assembly);
             return services;

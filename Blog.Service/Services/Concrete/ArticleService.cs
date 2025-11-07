@@ -22,10 +22,27 @@ namespace Blog.Service.Services.Concrete
             this.mapper = mapper;
         }
 
+        public async Task CreateArticleAsync(ArticleAddDto articleAddDto)
+        {
+            var userId = Guid.Parse("0DD20017-ED70-471F-9701-926A8F764EF2");
+
+            var article = new Article
+            {
+                Title = articleAddDto.Title,
+                Content = articleAddDto.Content,
+                CategoryId = articleAddDto.CategoryId,
+                UserId = userId
+            };
+
+            await _unitOfWork.GetRepository<Article>().AddAsync(article);
+            await _unitOfWork.SaveChangesAsync();
+        }
+
         public async Task<List<ArticleDto>> GetAllArticleWithCategoryNonDeletedAsync()
         {
+            //Veritabanındaki silinmemiş tüm makaleleri, kategori bilgisiyle birlikte liste olarak getir.
             var articles = await _unitOfWork.GetRepository<Article>().GetAllAsync(x => !x.IsDeleted, x => x.Category);
-            var map = mapper.Map<List<ArticleDto>>(articles);
+            var map = mapper.Map<List<ArticleDto>>(articles);  //bu listeyi ArticleDto tipine dönüştürür.
             return map;
         }
     }
