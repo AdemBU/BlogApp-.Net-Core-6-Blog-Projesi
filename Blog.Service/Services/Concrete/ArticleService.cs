@@ -45,5 +45,25 @@ namespace Blog.Service.Services.Concrete
             var map = mapper.Map<List<ArticleDto>>(articles);  //bu listeyi ArticleDto tipine dönüştürür.
             return map;
         }
+
+        public async Task<ArticleDto> GetArticleWithCategoryNonDeletedAsync(Guid articleId)
+        {
+            //Veritabanındaki silinmemiş tüm makaleleri, kategori bilgisiyle birlikte liste olarak getir.
+            var article = await _unitOfWork.GetRepository<Article>().GetAsync(x => !x.IsDeleted && x.Id == articleId, x => x.Category);
+            var map = mapper.Map<ArticleDto>(article);  //bu listeyi ArticleDto tipine dönüştürür.
+            return map;
+        }
+
+        public async Task UpdateArticleAsync(ArticleUpdateDto articleUpdateDto)
+        {
+            var article = await _unitOfWork.GetRepository<Article>().GetAsync(x => !x.IsDeleted && x.Id == articleUpdateDto.Id, x => x.Category);
+
+            article.Title = articleUpdateDto.Title;
+            article.Content = articleUpdateDto.Content;
+            article.CategoryId = articleUpdateDto.CategoryId;
+
+            await _unitOfWork.GetRepository<Article>().UpdateAsync(article);
+            await _unitOfWork.SaveAsync();
+        }
     }
 }

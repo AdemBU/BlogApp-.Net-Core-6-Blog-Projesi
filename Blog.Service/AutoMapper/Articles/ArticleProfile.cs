@@ -10,6 +10,8 @@ namespace Blog.Service.AutoMapper.Articles
         {
             // CreateMap<Source, Destination>();
             CreateMap<ArticleDto, Article>().ReverseMap();
+            CreateMap<ArticleUpdateDto, Article>().ReverseMap();
+            CreateMap<ArticleUpdateDto, ArticleDto>().ReverseMap();
         }
     }
 }
