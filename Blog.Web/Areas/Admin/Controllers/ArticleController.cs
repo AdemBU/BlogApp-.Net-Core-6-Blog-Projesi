@@ -36,7 +36,7 @@ namespace Blog.Web.Areas.Admin.Controllers
         public async Task<IActionResult> Add(ArticleAddDto articleAddDto)
         {
             await _articleService.CreateArticleAsync(articleAddDto);
-            RedirectToAction("Index", "Article", new { area = "Admin" });
+            return RedirectToAction("Index", "Article", new { area = "Admin" });
 
             var categories = await _categoryService.GetAllCategoriesNonDeleted();
             return View(new ArticleAddDto { Categories = categories });
