@@ -12,6 +12,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card mb-4">
+                                <div asp-validation-summary="ModelOnly"></div>
                                 <h5 class="card-header">Default</h5>
                                 <form asp-controller="Article" asp-action="Add" method="post" enctype="multipart/form-data">
                                     <div class="card-body">
@@ -28,6 +29,7 @@
                                                    id="defaultFormControlInput"
                                                    placeholder="Lütfen Başlık Giriniz"
                                                    aria-describedby="defaultFormControlHelp" />
+                                            <span asp-validation-for="Title" class="text-danger"></span>
                                         </div>
                                         <br />
                                         <div>
@@ -37,6 +39,7 @@
                                                       id="defaultFormControlInput"
                                                       placeholder="İçerik"
                                                       aria-describedby="defaultFormControlHelp"></textarea>
+                                            <span asp-validation-for="Content" class="text-danger"></span>
                                         </div>
                                         <br />
                                         <div class="form-group">
@@ -55,3 +58,8 @@
     <div class="layout-overlay layout-menu-toggle"></div>
 </div>
 
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

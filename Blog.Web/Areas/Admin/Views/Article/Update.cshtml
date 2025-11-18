@@ -12,6 +12,7 @@
                         <div class="col-md-12">
                             <div class="card mb-4">
                                 <h5 class="card-header">Default</h5>
+                                <div asp-validation-summary="ModelOnly"></div>
                                 <form asp-controller="Article" asp-action="Update" method="post" enctype="multipart/form-data">
                                     <div class="card-body">
                                         <input type="hidden" asp-for="Id" />
@@ -28,6 +29,7 @@
                                                    id="defaultFormControlInput"
                                                    placeholder="Lütfen Başlık Giriniz"
                                                    aria-describedby="defaultFormControlHelp" />
+                                            <span asp-validation-for="Title" class="text-danger"></span>
                                         </div>
                                         <br />
                                         <div>
@@ -37,6 +39,7 @@
                                                       id="defaultFormControlInput"
                                                       placeholder="İçerik"
                                                       aria-describedby="defaultFormControlHelp"></textarea>
+                                            <span asp-validation-for="Content" class="text-danger"></span>
                                         </div>
                                         <br />
                                         <div class="form-group">
