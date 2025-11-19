@@ -352,6 +352,7 @@
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     @await RenderSectionAsync("Scripts", false);
+    @await Component.InvokeAsync("NToastNotify")
     <!-- Visual Studio Browser Link -->
     <script type="text/javascript" src="/_vs/browserLink" async="async" id="__browserLink_initializationData" data-requestId="b9fc3a3f1c9e41f49ea769597118103a" data-requestMappingFromServer="false" data-connectUrl="http://localhost:60247/06cee13ecd8a4f51bd7d8e0a1b1d8349/browserLink"></script>
     <!-- End Browser Link -->

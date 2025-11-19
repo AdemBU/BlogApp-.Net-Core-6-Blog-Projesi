@@ -49,7 +49,7 @@ namespace Blog.Service.Services.Concrete
             return map;
         }
 
-        public async Task UpdateArticleAsync(ArticleUpdateDto articleUpdateDto)
+        public async Task<string> UpdateArticleAsync(ArticleUpdateDto articleUpdateDto)
         {
             var article = await _unitOfWork.GetRepository<Article>().GetAsync(x => !x.IsDeleted && x.Id == articleUpdateDto.Id, x => x.Category);
 
@@ -59,9 +59,11 @@ namespace Blog.Service.Services.Concrete
 
             await _unitOfWork.GetRepository<Article>().UpdateAsync(article);
             await _unitOfWork.SaveChangesAsync();
+
+            return article.Title;
         }
 
-        public async Task SafeDeletedArticleAsync(Guid articleId)
+        public async Task<string> SafeDeletedArticleAsync(Guid articleId)
         {
             var article = await _unitOfWork.GetRepository<Article>().GetByGuidAsync(articleId);
 
@@ -70,6 +72,8 @@ namespace Blog.Service.Services.Concrete
 
             await _unitOfWork.GetRepository<Article>().UpdateAsync(article);
             await _unitOfWork.SaveChangesAsync();
+
+            return article.Title;
         }
     }
 }
