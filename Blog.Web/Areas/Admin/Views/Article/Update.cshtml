@@ -42,6 +42,22 @@
                                             <span asp-validation-for="Content" class="text-danger"></span>
                                         </div>
                                         <br />
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label asp-for="Image.FileName" class="form-label d-block mb-1">Mevcut Resim</label>
+                                                <img style="height:25em; width:25em;" class="mb-3" src="~/images/@Model.Image.FileName" alt="@Model.Title" />
+                                            </div>
+                                            <br />
+                                            <div class="form-group col-md-6">
+                                                <label asp-for="Photo" class="form-label mb-1">Resim Seçiniz</label>
+                                                <input asp-for="Photo" type="text" type="file" accept="image/*"
+                                                       class="form-control mb-3"
+                                                       id="defaultFormControlInput"
+                                                       aria-describedby="defaultFormControlHelp" />
+                                                <span asp-validation-for="Photo" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <br />
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary btn-block">Kaydet</button>
                                         </div>

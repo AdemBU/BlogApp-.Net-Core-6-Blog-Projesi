@@ -3,6 +3,7 @@ using Blog.Data.Repositories.Abstractions;
 using Blog.Data.Repositories.Concretes;
 using Blog.Data.UnitOfWorks;
 using Blog.Service.FluentValidations;
+using Blog.Service.Helpers.Images;
 using Blog.Service.Services.Abstractions;
 using Blog.Service.Services.Concrete;
 using FluentValidation;
@@ -31,6 +32,8 @@ namespace Blog.Service.Extensions
             services.AddScoped<ICategoryService, CategoryService>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddScoped<IImageHelper, ImageHelper>();
 
             services.AddAutoMapper(assembly);
 
