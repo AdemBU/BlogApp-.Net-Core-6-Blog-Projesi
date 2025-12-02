@@ -1,0 +1,50 @@
+﻿@model CategoryAddDto
+
+
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <div class="layout-page">
+
+            <div class="content-wrapper">
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Kategori Yönetimi /</span> Kategori Ekle</h4>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card mb-4">
+                                <div asp-validation-summary="ModelOnly"></div>
+                                <h5 class="card-header">Default</h5>
+                                <form asp-controller="Category" asp-action="Add" method="post" enctype="multipart/form-data">
+                                    <div class="card-body">
+                                        <br />
+                                        <div>
+                                            <label asp-for="Name" class="form-label mb-1">Kategori İsmi</label>
+                                            <input asp-for="Name" type="text"
+                                                   class="form-control"
+                                                   id="defaultFormControlInput"
+                                                   placeholder="Lütfen Kategori İsmini Giriniz"
+                                                   aria-describedby="defaultFormControlHelp" />
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>                                       
+                                        <br />
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary btn-block">Kaydet</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-backdrop fade"></div>
+            </div>
+        </div>
+    </div>
+    <div class="layout-overlay layout-menu-toggle"></div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
