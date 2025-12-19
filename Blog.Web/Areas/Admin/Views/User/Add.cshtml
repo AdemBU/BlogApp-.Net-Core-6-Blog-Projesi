@@ -1,0 +1,96 @@
+﻿@model UserAddDto
+
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <div class="layout-page">
+
+            <div class="content-wrapper">
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Kullanıcı Yönetimi /</span> Kullanıcı Ekle</h4>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card mb-4">
+                                <div asp-validation-summary="All" style="color:red"></div>
+                                <form asp-controller="User" asp-action="Add" method="post" enctype="multipart/form-data">
+
+                                    <div class="card-body">
+                                        <br />
+                                        <div>
+                                            <label asp-for="FirstName" class="form-label mb-1">Kullanıcı İsmi</label>
+                                            <input asp-for="FirstName" type="text"
+                                                   class="form-control"
+                                                   id="defaultFormControlInput"
+                                                   placeholder="Lütfen Kullanıcının İsmini Giriniz"
+                                                   aria-describedby="defaultFormControlHelp" />
+                                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                                        </div>
+                                        <br />
+                                        <div>
+                                            <label asp-for="LastName" class="form-label mb-1">Kullanıcı Soyismi</label>
+                                            <input asp-for="LastName" type="text"
+                                                   class="form-control"
+                                                   id="defaultFormControlInput"
+                                                   placeholder="Lütfen Kullanıcının Soyismini Giriniz"
+                                                   aria-describedby="defaultFormControlHelp" />
+                                            <span asp-validation-for="LastName" class="text-danger"></span>
+                                        </div>
+                                        <br />
+                                        <div>
+                                            <label asp-for="Email" class="form-label mb-1">Kullanıcı Email</label>
+                                            <input asp-for="Email" type="text"
+                                                   class="form-control"
+                                                   id="defaultFormControlInput"
+                                                   placeholder="Lütfen Kullanıcının Email Adresini Giriniz"
+                                                   aria-describedby="defaultFormControlHelp" />
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                        </div>
+                                        <br />
+                                        <div>
+                                            <label asp-for="PhoneNumber" class="form-label mb-1">Kullanıcının Telefon Numarası</label>
+                                            <input asp-for="PhoneNumber" type="tel"
+                                                   class="form-control"
+                                                   id="defaultFormControlInput"
+                                                   placeholder="Lütfen Kullanıcının Telefon Numarasını Giriniz"
+                                                   aria-describedby="defaultFormControlHelp" />
+                                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                        </div>
+                                        <br />
+                                        <div>
+                                            <label asp-for="RoleId" class="form-label mb-1">Kullanıcının Rolü</label>
+                                            <select asp-for="RoleId" class="form-control" asp-items="@(new SelectList(Model.Roles,"Id","Name"))"></select>
+                                            <span asp-validation-for="RoleId" class="text-danger"></span>
+                                        </div>
+                                        <br />
+                                        <div>
+                                            <label asp-for="Password" class="form-label mb-1">Kullanıcı Parolası</label>
+                                            <input asp-for="Password" type="password"
+                                                   class="form-control"
+                                                   id="defaultFormControlInput"
+                                                   placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                                   aria-describedby="defaultFormControlHelp" />
+                                            <span asp-validation-for="Password" class="text-danger"></span>
+                                        </div>
+
+                                        <br />
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary btn-block">Kaydet</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-backdrop fade"></div>
+            </div>
+        </div>
+    </div>
+    <div class="layout-overlay layout-menu-toggle"></div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
