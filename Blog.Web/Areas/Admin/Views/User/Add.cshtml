@@ -11,9 +11,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card mb-4">
-                                <div asp-validation-summary="All" style="color:red"></div>
-                                <form asp-controller="User" asp-action="Add" method="post" enctype="multipart/form-data">
 
+                                <form asp-controller="User" asp-action="Add" method="post" enctype="multipart/form-data">
+                                    <div asp-validation-summary="All" style="color:red"></div>
                                     <div class="card-body">
                                         <br />
                                         <div>
@@ -23,7 +23,6 @@
                                                    id="defaultFormControlInput"
                                                    placeholder="Lütfen Kullanıcının İsmini Giriniz"
                                                    aria-describedby="defaultFormControlHelp" />
-                                            <span asp-validation-for="FirstName" class="text-danger"></span>
                                         </div>
                                         <br />
                                         <div>
@@ -33,7 +32,6 @@
                                                    id="defaultFormControlInput"
                                                    placeholder="Lütfen Kullanıcının Soyismini Giriniz"
                                                    aria-describedby="defaultFormControlHelp" />
-                                            <span asp-validation-for="LastName" class="text-danger"></span>
                                         </div>
                                         <br />
                                         <div>
@@ -43,7 +41,6 @@
                                                    id="defaultFormControlInput"
                                                    placeholder="Lütfen Kullanıcının Email Adresini Giriniz"
                                                    aria-describedby="defaultFormControlHelp" />
-                                            <span asp-validation-for="Email" class="text-danger"></span>
                                         </div>
                                         <br />
                                         <div>
@@ -53,13 +50,11 @@
                                                    id="defaultFormControlInput"
                                                    placeholder="Lütfen Kullanıcının Telefon Numarasını Giriniz"
                                                    aria-describedby="defaultFormControlHelp" />
-                                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                                         </div>
                                         <br />
                                         <div>
                                             <label asp-for="RoleId" class="form-label mb-1">Kullanıcının Rolü</label>
                                             <select asp-for="RoleId" class="form-control" asp-items="@(new SelectList(Model.Roles,"Id","Name"))"></select>
-                                            <span asp-validation-for="RoleId" class="text-danger"></span>
                                         </div>
                                         <br />
                                         <div>
@@ -69,7 +64,6 @@
                                                    id="defaultFormControlInput"
                                                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                                    aria-describedby="defaultFormControlHelp" />
-                                            <span asp-validation-for="Password" class="text-danger"></span>
                                         </div>
 
                                         <br />
