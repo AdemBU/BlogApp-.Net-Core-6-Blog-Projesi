@@ -14,7 +14,7 @@
                 Kullanıcı Ekle <i class="bx bx-plus"></i>
             </a>
 
-            <table class="table table-bordered" id="userTable" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="usersTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>İsim</th>
@@ -22,8 +22,8 @@
                         <th>Email</th>
                         <th>Telefon Numarası</th>
                         <th>Rol</th>
-                        <th>Email Doğrulaması</th>
-                        <th>Bağlantı Hataları</th>
+                        <th>Email doğrulaması</th>
+                        <th>Bağlantı hataları</th>
                         <th>İşlemler</th>
                     </tr>
                 </thead>
@@ -34,8 +34,8 @@
                         <th>Email</th>
                         <th>Telefon Numarası</th>
                         <th>Rol</th>
-                        <th>Email Doğrulaması</th>
-                        <th>Bağlantı Hataları</th>
+                        <th>Email doğrulaması</th>
+                        <th>Bağlantı hataları</th>
                         <th>İşlemler</th>
                     </tr>
                 </tfoot>
@@ -51,21 +51,8 @@
                             <td>@(user.EmailConfirmed ? "Doğrulanmış" : "Doğrulanmamış")</td>
                             <td>@user.AccessFailedCount</td>
                             <td>
-                                <a class="btn btn-primary btn-sm" data-id="@user.Id" asp-area="Admin" asp-controller="User" asp-action="Update" asp-route-categoryId="@user.Id"><i class="bx bxs-edit"></i></a>
-
-                                <a class="btn btn-danger btn-sm" data-id="@user.Id" asp-area="Admin" asp-controller="User" asp-action="Delete" asp-route-categoryId="@user.Id" onclick="return confirm('Silmek istediğinden emin misin?')"><i class="bx bx-minus-circle"></i></a>        @*
-                            // Buraya Eklendi *@
-                                <script>
-                                    function clicked(e) {
-                                        if (!confirm('Silmek istediğinden emin misin?')) {
-                                            e.preventDefault();
-                                        }
-                                    }
-                                </script>
-                                <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-                                <link rel="stylesheet" href="~/web/alertify.min.js" />
-                                <script src="~/js/site.js" asp-append-version="true"></script>
-
+                                <a class="btn btn-primary btn-sm" data-id="@user.Id" asp-area="Admin" asp-controller="User" asp-action="Update" asp-route-userId="@user.Id"><i class="bx bxs-edit"></i></a>
+                                <a class="btn btn-danger btn-sm" data-id="@user.Id" asp-area="Admin" asp-controller="User" asp-action="Delete" asp-route-userId="@user.Id"><i class="bx bx-minus-circle"></i></a>
 
                             </td>
                         </tr>
@@ -74,11 +61,6 @@
             </table>
         </div>
     </div>
-    <!--/ Basic Bootstrap Table -->
-
-
-
-
 </div>
 
 @section Scripts {
