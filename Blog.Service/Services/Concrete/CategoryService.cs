@@ -81,5 +81,27 @@ namespace Blog.Service.Services.Concrete
 
             return category.Name;
         }
+
+        public async Task<List<CategoryDto>> GetAllCategoriesDeleted()
+        {
+            var categories = await _unitOfWork.GetRepository<Category>().GetAllAsync(x => x.IsDeleted);
+            // silinmemiş kategorileri al
+            var map = _mapper.Map<List<CategoryDto>>(categories);
+            return map;
+        }
+
+        public async Task<string> UndoDeletedCategoryAsync(Guid categoryId)
+        {
+            var category = await _unitOfWork.GetRepository<Category>().GetByGuidAsync(categoryId);
+
+            category.IsDeleted = false;
+            category.DeletedBy = null;
+            category.DeletedDate = null;
+
+            await _unitOfWork.GetRepository<Category>().UpdateAsync(category);
+            await _unitOfWork.SaveChangesAsync();
+
+            return category.Name;
+        }
     }
 }

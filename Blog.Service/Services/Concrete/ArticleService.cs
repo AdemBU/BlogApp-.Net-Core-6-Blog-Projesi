@@ -109,5 +109,27 @@ namespace Blog.Service.Services.Concrete
 
             return article.Title;
         }
+
+        public async Task<List<ArticleDto>> GetAllArticlesWithCategoryDeletedAsync()
+        {
+            var articles = await _unitOfWork.GetRepository<Article>().GetAllAsync(x => x.IsDeleted, x => x.Category);
+            var map = mapper.Map<List<ArticleDto>>(articles);
+
+            return map;
+        }
+
+        public async Task<string> UndoDeletedArticleAsync(Guid articleId)
+        {
+            var article = await _unitOfWork.GetRepository<Article>().GetByGuidAsync(articleId);
+
+            article.IsDeleted = false;
+            article.DeletedDate = null;
+            article.DeletedBy = null;
+
+            await _unitOfWork.GetRepository<Article>().UpdateAsync(article);
+            await _unitOfWork.SaveChangesAsync();
+
+            return article.Title;
+        }
     }
 }
