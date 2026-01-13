@@ -1,6 +1,7 @@
 ﻿using Blog.Service.Services.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Blog.Web.Areas.Admin.Controllers
 {
