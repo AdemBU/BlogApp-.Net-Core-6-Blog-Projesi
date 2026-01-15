@@ -30,6 +30,7 @@ namespace Blog.Service.Extensions
             var assembly = Assembly.GetExecutingAssembly();  // Assembly = çağrıldığı katmanı klasörü bildirir => Blog.Service i temsil eder
             services.AddScoped<IArticleService, ArticleService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IUserService, UserService>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
